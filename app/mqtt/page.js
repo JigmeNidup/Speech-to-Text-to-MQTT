@@ -1,8 +1,8 @@
 "use client";
-import LocalSpeechToText from "@/components/LocalSpeechToText";
+import MQTTSpeechToText from "@/components/MQTTSpeechToText";
 import { useEffect, useState } from "react";
 
-export default function Home() {
+export default function MQTTSend() {
   const [show, setShow] = useState(false);
   useEffect(() => {
     setShow(true);
@@ -18,7 +18,7 @@ export default function Home() {
         backgroundImage: "linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%)",
       }}
     >
-      <div>{show && <LocalSpeechToText />}</div>
+      <div>{show && <MQTTSpeechToText />}</div>
     </main>
   );
 }
