@@ -19,18 +19,27 @@ const MQTTSpeechToText = () => {
 
   const { mqttPublish } = useDashboardDataStore();
 
+  // useEffect(() => {
+  //   if (!listening && start) {
+  //     console.log("done");
+  //     mqttPublish({
+  //       topic: "oled_display",
+  //       payload: transcript,
+  //     });
+  //   }
+  //   if (!start && !listening) {
+  //     setStart(true);
+  //   }
+  // }, [listening]);
+
   useEffect(() => {
-    if (!listening && start) {
-      console.log("done");
+    if (transcript) {
       mqttPublish({
         topic: "oled_display",
         payload: transcript,
       });
     }
-    if (!start && !listening) {
-      setStart(true);
-    }
-  }, [listening]);
+  }, [transcript]);
   
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser doesn&apos;t support speech recognition.</span>;
